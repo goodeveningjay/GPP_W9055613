@@ -11,9 +11,11 @@ class GPP_W9055613_API AMyPlayerCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
-protected:
+public:
+	// Sets default values for this character
 	AMyPlayerCharacter();
-	
+
+protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -24,6 +26,33 @@ protected:
 	//Player follow camera
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 		class UCameraComponent* CameraComp;
+
+	//Called for forwards/backward input
+	void MoveForward(float InputAxis);
+
+	//Called for left/right strafe input
+	void MoveRight(float InputAxis);
+
+	//Sets Character Movement Speed to Sprint values.
+	void BeginSprint();
+
+	//Sets Character Movement Speed back to default values.
+	void EndSprint();
+
+	//Request for Character to Crouch
+	void BeginCrouch();
+
+	//Request for Character to EndCrouch
+	void EndCrouch();
+
+
+	// REMEMBER: Jump is bound to 'F' and Roll is bound to 'SpaceBar'
+	// 
+	//TO DO: Request for Character to Roll
+	//void BeginRoll();
+	//
+	//TO DO: Request for Character to reset after completing Roll
+	//void EndRoll();
 
 public:	
 	// Called every frame
