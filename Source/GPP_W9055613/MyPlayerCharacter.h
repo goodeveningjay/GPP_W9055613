@@ -15,6 +15,10 @@ public:
 	// Sets default values for this character
 	AMyPlayerCharacter();
 
+	// TODO: Implement roll variables and functions using Character.h "jump" as a framework
+	UPROPERTY(BlueprintReadOnly, Category = Character)
+		uint32 bPressedDodgeRoll : 1;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
